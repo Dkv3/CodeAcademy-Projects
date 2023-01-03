@@ -1,0 +1,48 @@
+<!-- Proj created on 7/8/22 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Language Project</title>
+    <style type="text/css">
+        html {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    const input = 'Big Floppa';
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let resultArray = [];
+
+    for (let i = 0; i < input.length; i++) {
+    // console.log(input[i]);
+        if (input[i] === 'e') {
+            resultArray.push(input[i]);
+        } else if (input[i] === 'u') {
+            resultArray.push(input[i]);
+        };
+        // console.log(resultArray);
+        
+            for (let j = 0; j < vowels.length; j++) {
+                // console.log([j]);
+                if (input[i] === vowels[j]) {
+                // console.log(vowels[j]);
+                // resultArray = vowels[j];
+                resultArray.push(input[i]);
+                // console.log(resultArray);
+                };
+            }; 
+    };
+
+    // console.log(resultArray);
+    let resultString = resultArray.join('').toUpperCase();
+    console.log(resultString);
+
+    </script>
+</body>
+</html>
