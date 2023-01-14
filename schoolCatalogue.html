@@ -1,0 +1,99 @@
+<!-- Proj created 1/13/22 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Catalogue</title>
+</head>
+
+<body>
+    <script>
+        class School {
+            constructor(name, numberOfStudents, level) {
+                this._name = name;
+                this._numberOfStudents = numberOfStudents;
+                this._level = level;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            get numberOfStudents() {
+                return this._numberOfStudents;
+            }
+
+            get level() {
+                return this._level;
+            }
+
+            set numberOfStudents(num) {
+                if (typeof num === "number") {
+                    return this._numberOfStudents = num;
+                } else {
+                    console.log("Invalid input: numberOfStudents must be set to a Number.");
+                }
+            }
+
+            quickFacts() {
+                console.log(`${this._name} educates ${this._numberOfStudents} students at the ${this._level} school level.`)
+            }
+
+            static pickSubstituteTeacher(substituteTeachers) {
+                let randNum = Math.floor(Math.random() * substituteTeachers.length);
+                console.log(`Your subtitute teacher will be: ${substituteTeachers[randNum]}.`);
+            }
+            // School class ends here
+        }
+
+        class Primary extends School {
+            constructor(name, numberOfStudents, pickupPolicy) {
+                super(name, numberOfStudents, 'primary');
+                this._pickupPolicy = pickupPolicy;
+            }
+
+            get pickupPolicy() {
+                return this._pickupPolicy;
+            }
+            // Primary class ends here
+        }
+
+        class Middle extends School {
+            constructor(name) {
+                super(name);
+            }
+            // Middle class ends here
+        }
+
+        class High extends School {
+            constructor(name, numberOfStudents, sportsTeams) {
+                super(name, numberOfStudents, 'high');
+                this._sportsTeams = sportsTeams;
+            }
+
+            get sportsTeams() {
+                console.log(`${this._name} has the following sports teams:`)
+                for (let i = 0; i < this._sportsTeams.length; i++) {
+                    console.log(this._sportsTeams[i]);
+                }
+            }
+            // High class ends here
+        }
+
+        const lorraineHansbury = new Primary("Lorraine Hansbury", 514, "Students must be picked up by a parent, guardian, or a family member over the age of 13.")
+        // console.log(lorraineHansbury);
+        lorraineHansbury.quickFacts();
+        School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']);
+
+        console.log("----------")
+
+        const alSmith = new High("Al E. Smith", 415, ['Baseball', 'Basketball', 'Volleyball', 'Track and Field']);
+        // console.log(alSmith);
+        alSmith.sportsTeams;
+    </script>
+</body>
+
+</html>

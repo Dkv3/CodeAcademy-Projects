@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock / Paper / Scissors Project</title>
+    <style type="text/css">
+        html {
+            background-color: #302d2d;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    const getUserChoice = userInput => {
+        userInput = userInput.toLowerCase();
+        if (userInput === 'rock') {
+            return userInput;
+        } else if (userInput === 'paper') {
+            return userInput;
+        } else if (userInput === 'scissors') {
+            return userInput;
+        } else if (userInput === 'bomb') {
+            return userInput;
+        } else {
+            return 'You must pick either "rock," "paper," or "scissors."'
+        }
+    };
+
+    const getComputerChoice = () => {
+        const number = Math.floor(Math.random() * 3)
+        if (number === 0) {
+            return 'rock';
+        } else if (number === 1) {
+            return 'paper';
+        } else if (number === 2) {
+            return 'scissors';
+        }
+    }
+
+    const determineWinner = (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
+            return 'The game is a tie'
+        } 
+        
+        else if (userChoice === 'rock') {
+            if (computerChoice === 'paper') {
+                return 'The computer wins';
+            } else if (computerChoice === 'scissors') {
+                return 'The player wins';
+            } 
+        } 
+        
+        else if (userChoice === 'paper') {
+            if (computerChoice === 'rock') {
+                return 'The player wins';
+            } else if (computerChoice === 'scissors') {
+                return 'The computer wins';
+            }
+        }
+
+        else if (userChoice === 'scissors') {
+            if (computerChoice === 'rock') {
+                return 'The computer wins'
+            } else if (computerChoice === 'paper') {
+                return 'The player wins'
+            }
+        }
+
+        else if (userChoice === 'bomb') {
+        return 'Bomb always wins x)'
+        }
+
+    }
+
+    const playGame = () => {
+        const userChoice = getUserChoice('bomb');
+        const computerChoice = getComputerChoice();
+        console.log(`${userChoice} vs. ${computerChoice}`);
+        console.log(determineWinner(userChoice, computerChoice));
+    }
+
+    playGame();
+
+    </script>
+</body>
+</html>
