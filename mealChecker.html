@@ -1,0 +1,79 @@
+<!-- Created on 12/16/22 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mealChecker</title>
+
+    <style type="text/css">
+        body {background-color: #232324;}
+    </style>
+
+</head>
+<body>
+    <script>
+        // Initial menu object
+        const menu = {
+        _meal: '',
+        _price: 0,
+
+        // Checks to see if the meal is a string
+        set meal(mealToCheck) {
+            if (typeof mealToCheck === "string") {
+            this._meal = mealToCheck;
+            return this._meal;
+            } else {
+            console.log("The meal entry is invalid! Please enter a string.");
+            }
+        },
+
+        // Checks to see if the price is a number
+        set price(priceToCheck) {
+            if (typeof priceToCheck === "number") {
+            this._price = priceToCheck;
+            return this._price;
+            } else {
+            console.log("The price entry is invalid! Please enter a number.");
+            }
+        },
+
+        // Checks to see if meal and price are truthy
+        get todaysSpecial() {
+            if (this._meal && this._price) {
+            return `Today’s Special is ${this._meal} for \$${this._price}!`;
+            } else {
+            return "Information on the special is currently unavailable."
+            }
+        }
+
+        };
+
+        // Set the meal and price
+        menu.meal = "Fish";
+        menu.price = 25;
+
+        // Log the meal if truthy
+        if (menu._meal) {
+        console.log(`Special: ${menu._meal}`);
+        } else {
+        console.log(`Special: ERROR! NOT SET.`);
+        };
+
+        // Log the price if truthy
+        if (menu._price) {
+        console.log(`Price: \$${menu._price}`);
+        } else {
+        console.log('PRICE: ERROR! NOT SET.');
+        };
+
+        console.log("---------");
+
+        // Logs the special (truthy meal and price) 
+        console.log(menu.todaysSpecial);
+
+
+    </script>
+</body>
+</html>
