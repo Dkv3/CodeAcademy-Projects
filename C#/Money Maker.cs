@@ -9,7 +9,7 @@ namespace MoneyMaker
       Console.WriteLine("Coin Conversion");
 
       // Prompts for user
-      Console.WriteLine("Enter an amount (in cents) to convert to the lowest-possible amount of coins: ");
+      Console.WriteLine("Enter a dollar amount. It will be converted to the lowest-possible amount of coins: ");
       Console.WriteLine("1 Dollar Coin = 100 Cents");
       Console.WriteLine("1 Half Dollar = 50 Cents");
       Console.WriteLine("1 Quarter = 25 Cents");
@@ -20,7 +20,10 @@ namespace MoneyMaker
 
       // Store and convert input from string to double
       string input = Console.ReadLine();
-      double amount = Math.Floor(Convert.ToDouble(input));
+      double amount = Convert.ToDouble(input);
+      double totalDollars = Math.Floor(amount);
+      double totalCents = 100 * amount;
+      double centsRemaining = totalCents % 100;
 
       // Define coin values
       double dollar = 100;
@@ -31,8 +34,8 @@ namespace MoneyMaker
       double penny = 1; 
 
       // Calculate values
-      double dollarCoins = Math.Floor(amount / dollar);
-      double remainder = amount % dollar;
+      double dollarCoins = Math.Floor(totalCents / dollar);
+      double remainder = totalCents % dollar;
       double halfCoins = Math.Floor(remainder / half);
       remainder = remainder % half;
       double quartCoins = Math.Floor(remainder / quart);
@@ -45,13 +48,14 @@ namespace MoneyMaker
       remainder = remainder % penny;
 
       // Display values
-      Console.WriteLine($"{amount} is equal to...");
-      Console.WriteLine($"Dollar Coins: {dollarCoins}");
-      Console.WriteLine($"Half Dollar Coins: {halfCoins}");
-      Console.WriteLine($"Quarters: {quartCoins}");
-      Console.WriteLine($"Dimes: {dimeCoins}");
-      Console.WriteLine($"Nickels: {nickelCoins}");
-      Console.WriteLine($"Pennies: {pennyCoins}");
+      Console.WriteLine(""); // Line break for readability
+      Console.WriteLine($"{totalDollars} dollars and {centsRemaining} cents is equal to...");
+      Console.WriteLine($"{dollarCoins} Dollar Coin(s)");
+      Console.WriteLine($"{halfCoins} Half Dollar Coin(s)");
+      Console.WriteLine($"{quartCoins} Quarter(s)");
+      Console.WriteLine($"{dimeCoins} Dime(s)");
+      Console.WriteLine($"{nickelCoins} Nickel(s)");
+      Console.WriteLine($"{pennyCoins} Pennie(s)");
 
     }
   }
