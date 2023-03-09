@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  background: linear-gradient(to bottom, #2C3E50 5%, #000000 100%);
+  color: white;
+  text-shadow: -.1em 0 black, 0 .1em black, .1em 0 black, 0 -.1em black;
+  font-family: 'Quicksand';
+}
+
+.Header {
+  position: relative;
+  background-image: url('./Florida BG.webp');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+  border-color: black;
+  border-style: none none outset;
+}
+
+.Overlay {
+  padding: 1em;
+	position: relative;
+	min-height: 100%;
+	min-width: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(156, 154, 154, 0.4);
+}
+
+
+.Header {
+	background-image: url('./Florida BG.webp');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}	
+
+.Nav {
+  position: relative;
+  height: 3em;
+  padding: .5em;
+  background-color: #343a40;
+  border-style: none none outset;
+  border-color: black;
+}
+
+.Content {
+  height: 48em;
+  padding-top: 1em;
+
+}
+
+.Title {
+	margin-top: 1em;
+	padding: 2em;
+}
+
+.Names {
+  position: relative;
+  margin-top: 1em;
+  /* border-image: linear-gradient(to bottom, #380263 5%, #6628ed 100%); */
+  border-width: .2em;
+  border-style: outset;
+  border-color: black;
+  height: 20em;
+}
+
+.Buttons {
+  padding-top: 1em;
+}
+
+.SignIn {
+	position: relative;
+  margin-top: 5em;
+}
+
+.SignOut {
+	position: relative;
+  margin-top: 5em;
+
+}
+
+.Footer{
+	position: relative;
+  padding-bottom: 3.8em;
+}
