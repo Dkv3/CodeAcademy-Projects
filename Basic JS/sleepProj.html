@@ -1,0 +1,87 @@
+<!-- Proj created on 7/7/22 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Project</title>
+    <style type="text/css">
+        html {
+            background-color: #302d2d;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Change the return number to the amount of sleep gotten on that day
+        const getSleepHours = day => {
+            switch (day) {
+                case 'monday':
+                return 8;
+                break;
+                case 'tuesday':
+                return 8;
+                break;
+                case 'wednesday':
+                return 8;
+                break;
+                case 'thursday':
+                return 8;
+                break;
+                case 'friday':
+                return 8;
+                break;
+                case 'saturday':
+                return 8;
+                break;
+                case 'sunday':
+                return 8;
+                break;
+            }
+        }
+
+        const getActualSleepHours = () => {
+            let totalSleepHours = getSleepHours('monday');
+            totalSleepHours += getSleepHours('tuesday');
+            totalSleepHours += getSleepHours('wednesday');
+            totalSleepHours += getSleepHours('thursday');
+            totalSleepHours += getSleepHours('friday');
+            totalSleepHours += getSleepHours('saturday');
+            totalSleepHours += getSleepHours('sunday');
+            return totalSleepHours;
+
+            /* Alternatively, use the following function, and 
+            comment out the one above for daily sleep amounts
+
+            const getActualSleepHours = () => {
+                8 + 8 + 8 + 8 + 8 + 8 + 8 
+            } */
+
+        }
+        
+        const getIdealSleepHours = idealSleepAmount => {
+            const idealHours = idealSleepAmount;
+            return idealHours * 7;
+        }
+
+        const calculateSleepDebt = () => {
+            const actualSleepHours = getActualSleepHours();
+            // Change the paramater of getIdealSleepHours to the desired daily sleep amount
+            const idealSleepHours = getIdealSleepHours(8);
+            const sleepDifference = actualSleepHours - idealSleepHours;
+            const absoluteSleepDiffeerence = Math.abs(sleepDifference);
+            if (actualSleepHours === idealSleepHours) {
+                console.log('You got the perfect amount of sleep :)');
+            } else if (actualSleepHours > idealSleepHours) {
+                console.log(`You got ${absoluteSleepDiffeerence} extra hours of sleep x_x`);
+            } else if (actualSleepHours < idealSleepHours) {
+                console.log(`You didn't get enough sleep! You were ${absoluteSleepDiffeerence} hours under.`);
+            };
+        }
+
+        calculateSleepDebt();
+    </script>
+</body>
+</html>
