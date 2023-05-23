@@ -32,6 +32,7 @@ namespace DatingProfile
       this.city = city;
       this.country = country;
       this.pronouns = pronouns;
+      // If hobbies is null, this.hobbies becomes an empty array (new string [0])
       this.hobbies = hobbies ?? new string[0];
     }
     
